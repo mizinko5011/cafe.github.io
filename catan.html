@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ゲーム情報 - カタン</title>
+  <!-- Google Fontsから日本語対応フォントを読み込み -->
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+  <!-- 背景スタイルシート -->
+  <link rel="stylesheet" href="styles/bg-styles.css" />
+  <!-- ゲーム詳細ページ専用スタイルシート -->
+  <link rel="stylesheet" href="styles/gamestyles.css" />
+</head>
+<body>
+  <!-- 背景レイヤー（bg-styles.jsがアニメーションを自動生成） -->
+  <div class="boardgame-background">
+    <div class="overlay-pattern"></div>
+    <div class="particle-container"></div>
+  </div>
+  
+  <!-- ホームページへ戻るナビゲーションボタン -->
+  <a href="home.html" class="back-btn">← ホームに戻る</a>
+  
+  <!-- メインコンテンツコンテナ -->
+  <div class="container">
+    <!-- ゲーム基本情報セクション -->
+    <div class="game-header">
+      <!-- ゲーム画像 -->
+      <div class="image-box">
+        <img src="images/catan.jpg" class="game-img" alt="カタンゲーム画像">
+      </div>
+      <!-- ゲーム基本情報 -->
+      <div class="info">
+        <h2>カタン</h2>
+        <p>ジャンル：戦略系/運要素/交渉・協力要素</p>
+        <p>人数：3〜4人</p>
+        <p>時間：60分-120分</p>
+        <p>対象年齢：10歳以上</p>
+        <p>評価：★★★★☆</p>
+
+        <!-- アクションボタン群 -->
+        <div class="btn-row">
+          <button class="btn" id="rateBtn">⭐ 評価する</button>
+          <button class="btn" id="favoriteBtn">🤍 お気に入り</button>
+       <a href="reservation.html" class="btn">👜 今すぐ借りる</a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ゲーム詳細説明セクション -->
+    <div class="game-description">
+      <h3>説明</h3>
+      <p>
+        カタンは、プレイヤーが島の開拓者となり、資源を集めて道路や集落、都市を建設し、発展を競うボードゲームです。
+        サイコロで資源が得られ、資源の交易や交渉も重要な戦略要素です。最初に一定数の勝利ポイントを獲得したプレイヤーが勝利します。
+        運と戦略、交渉のバランスが楽しめる名作ゲームです。
+      </p>
+    </div>
+
+    <!-- 評価投稿モーダルダイアログ（初期状態は非表示） -->
+    <div class="rating-modal" id="ratingModal">
+      <div class="modal-content">
+        <h3>レビューを投稿</h3>
+        <!-- 星評価入力 -->
+        <div class="star-rating">
+          <span class="star" data-value="1">☆</span>
+          <span class="star" data-value="2">☆</span>
+          <span class="star" data-value="3">☆</span>
+          <span class="star" data-value="4">☆</span>
+          <span class="star" data-value="5">☆</span>
+        </div>
+        <!-- 選択された評価値を表示 -->
+        <div class="rating-value" id="ratingValue">評価: 0/5</div>
+        
+        <!-- レビュー投稿フォーム -->
+        <div class="form-group">
+          <label for="userName">名前:</label>
+          <input type="text" id="userName" placeholder="名前を入力してください" value="匿名ユーザー">
+        </div>
+        
+        <div class="form-group">
+          <label for="comment">コメント:</label>
+          <textarea id="comment" rows="4" placeholder="レビューを入力してください..."></textarea>
+        </div>
+        
+        <!-- モーダル操作ボタン -->
+        <div class="modal-buttons">
+          <button class="btn submit-btn" id="submitReview">送信</button>
+          <button class="btn cancel-btn" id="cancelReview">キャンセル</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ユーザーレビュー表示セクション -->
+    <div class="review-section">
+      <div class="review-title">レビュー</div>
+
+      <!-- レビューカード（テンプレート/既存レビュー） -->
+      <div class="review-card" id="userReviewTemplate">
+        <div class="icon"></div>
+        <div class="review-body">
+          <span class="reviewer-name">本人</span><br />
+          <span class="review-content">とても面白かった！また遊びたい。</span>
+        </div>
+        <div class="review-meta">
+          <span class="review-stars">★★★★★</span><br />
+          <span class="review-date">2025/11/11</span>
+        </div>
+      </div>
+
+      <!-- サンプルレビューカード 1 -->
+      <div class="review-card">
+        <div class="icon"></div>
+        <div class="review-body">
+          会員名<br />家族で楽しめました。
+        </div>
+        <div class="review-meta">
+          ★★★☆☆<br />2025/10/11
+        </div>
+      </div>
+
+      <!-- サンプルレビューカード 2 -->
+      <div class="review-card">
+        <div class="icon"></div>
+        <div class="review-body">
+          会員名<br />思ったより盛り上がった！
+        </div>
+        <div class="review-meta">
+          ★★★★★<br />2025/10/10
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ゲーム詳細ページ専用JavaScript（評価機能など） -->
+  <script src="scripts/game.js"></script>
+  <!-- 背景アニメーション制御JavaScript -->
+  <script src="scripts/bg-styles.js"></script>
+</body>
+</html>

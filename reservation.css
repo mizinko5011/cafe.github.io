@@ -1,0 +1,140 @@
+/* ===== 全体 ===== */
+body {
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+    background-color: #f3ead9; /* ホーム背景に寄せた色 */
+    color: #333;
+}
+
+/* ===== 中央配置 ===== */
+.reservation-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* ===== カードUI ===== */
+.reservation-card {
+    width: 100%;
+    max-width: 480px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== タイトル ===== */
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 28px;
+    color: #4a3b2a; /* 木・カフェ感 */
+}
+
+/* ===== セクション ===== */
+.section {
+    margin-bottom: 22px;
+}
+
+.section-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #5a4a3a;
+}
+
+/* ===== ラベル ===== */
+.label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+    color: #5a4a3a;
+}
+
+/* ===== 入力 ===== */
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+/* ===== ゲーム一覧 ===== */
+#selected-games {
+    padding-left: 20px;
+}
+
+#selected-games li {
+    margin-bottom: 6px;
+}
+
+/* ===== 返却予定日 ===== */
+.return-date {
+    background-color: #f6f1e7;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* ===== ボタン ===== */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #6b4f3f; /* カフェ系ブラウン */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+}
+
+.submit-btn:hover {
+    background-color: #5a4033;
+}
+
+/* ゲームタグ表示 */
+.game-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.game-tags li {
+    background-color: #f6f1e7;
+    border: 1px solid #e0d6c5;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #4a3b2a;
+}
+
+
+
+
+.form-item {
+    box-sizing: border-box;
+}
+
+
+.return-date {
+    background-color: #efe6d8;
+    border-left: 4px solid #6b4f3f;
+    padding: 12px;
+    font-weight: 500;
+}
+
+.submit-btn {
+    margin-top: 12px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}

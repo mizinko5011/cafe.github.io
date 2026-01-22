@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>検索結果</title>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/bg-styles.css" />
+  <link rel="stylesheet" href="styles/morestyles.css" />
+  <link rel="stylesheet" href="styles/searchstyles.css" />
+</head>
+<body>
+  <!-- 背景レイヤー（bg-styles.jsが自動処理） -->
+  <div class="boardgame-background">
+    <div class="overlay-pattern"></div>
+    <div class="particle-container"></div>
+  </div>
+  
+  <div class="page-wrapper">
+    <main class="main-content">
+      <!-- 戻るボタン（オプション） -->
+      <a href="home.html" class="back-btn">← ホームに戻る</a>
+      
+      <div class="search-info">
+        <h3 id="search-title">検索結果</h3>
+        <div id="search-filters" class="filter-tags"></div>
+        <div id="result-count" class="result-count"></div>
+      </div>
+      
+      <section class="section-block">
+        <h2>該当ゲーム</h2>
+        <div id="game-results" class="game-list">
+          <!-- ゲームはJavaScriptで動的に追加 -->
+        </div>
+      </section>
+      
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>該当するゲームが見つかりませんでした。</p>
+        <a href="home.html" class="back-to-home-btn">ホームに戻る</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="scripts/bg-styles.js"></script>
+  <script src="scripts/search.js"></script>
+</body>
+</html>

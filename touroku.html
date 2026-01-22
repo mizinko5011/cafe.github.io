@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>会員登録</title>
+  <link rel="stylesheet" href="touroku.css">
+  <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>ボードゲームカフェ</h1>
+  </header>
+    <main class="main">
+        <section id="contact" class="contact" style="text-align: center;">
+            <h1>会員登録</h1>
+
+   <form action="api/register.php" method="post">
+
+                <label for="name">ユーザー名</label><br>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">メールアドレス</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="password">パスワード</label><br>
+                <input type="password" name="password" rows="5" required><br><br>
+
+                <button type="submit">送信</button>
+               
+            </form>
+        </section>
+    </main>
+
+    <div class="wrapper">
+        <footer>
+            <p>&copy; 2025 All Rights Reserved.</p>
+        </footer>
+    </div>
+    
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
+  let current = 0;
+
+   function showSlide(index) {
+    slides[current].classList.remove("active");
+    dots[current].classList.remove("active");
+
+    current = (index + slides.length) % slides.length;
+
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
+  }
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 6000); // 3秒ごとに切り替え
+
+  // 矢印ボタンの処理
+  prevBtn.addEventListener("click", () => {
+    showSlide(current - 1);
+  });
+
+   nextBtn.addEventListener("click", () => {
+    showSlide(current + 1);
+  });
+
+  dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    const index = parseInt(dot.dataset.index);
+    showSlide(index);
+  });
+});
+</script>
+</body>
+</html>

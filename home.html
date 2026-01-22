@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Game Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/bg-styles.css" />
+<link rel="stylesheet" href="styles/homestyles.css" />
+</head>
+<body>
+<!-- 背景层（包含粒子容器） -->
+<div class="boardgame-background">
+  <div class="overlay-pattern"></div>
+  <div class="particle-container"></div>
+</div>
+
+<div class="page-wrapper">
+
+<header class="banner-container">
+  <!-- ヘッダーボタン（右上） -->
+  <div class="header-buttons">
+    <button class="menu-btn" onclick="location.href='menu.html'">🍴メニュー</button>
+    <button class="login-btn" onclick="location.href='login.html'">ログイン</button>
+  </div>
+  
+  <!-- バナースライダー -->
+  <div class="banner-slider">
+    <div class="slide active"><img src="images/Carousel1.jpg" alt="banner1"></div>
+    <div class="slide"><img src="images/Carousel2.jpg" alt="banner2"></div>
+    <div class="slide"><img src="images/Carousel3.jpg" alt="banner3"></div>
+  </div>
+
+  <!-- 検索バー -->
+  <div class="search-bar">
+    <input type="text" placeholder="ゲーム名で検索 (例: catan, uno)" id="search-input" />
+    <button class="search-btn">🔍</button>
+  </div>
+
+  <!-- カテゴリモーダル -->
+  <div class="category-modal" id="category-modal">
+    <div class="modal-content">
+      <div class="category-section">
+        <h3>ジャンル</h3>
+        <div class="category-grid">
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="strategy">
+            <span>戦略系</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="party">
+            <span>パーティー</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="luck">
+            <span>運要素</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="cooperation">
+            <span>協力</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="logic">
+            <span>推理・論理</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="card">
+            <span>カード</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="rpg">
+            <span>ロールプレイング</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="genre" value="family">
+            <span>教育・ファミリー</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="category-section">
+        <h3>プレイ人数</h3>
+        <div class="category-grid">
+          <label class="category-item">
+            <input type="checkbox" name="players" value="1-2">
+            <span>1〜2人</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="players" value="3-4">
+            <span>3〜4人</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="players" value="5-6">
+            <span>5〜6人</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="players" value="7+">
+            <span>7人以上</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="category-section">
+        <h3>プレイ時間</h3>
+        <div class="category-grid">
+          <label class="category-item">
+            <input type="checkbox" name="time" value="10-30">
+            <span>10〜30分</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="time" value="30-60">
+            <span>30〜60分</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="time" value="60+">
+            <span>60分以上</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="category-section">
+        <h3>年齢</h3>
+        <div class="category-grid">
+          <label class="category-item">
+            <input type="checkbox" name="age" value="0-6">
+            <span>～6歳</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="age" value="7-12">
+            <span>7～12歳</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="age" value="13-16">
+            <span>13～16歳</span>
+          </label>
+          <label class="category-item">
+            <input type="checkbox" name="age" value="17+">
+            <span>17歳～</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="clear-btn" id="clear-btn">クリア</button>
+        <button class="apply-btn" id="apply-btn">適用</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- スライダーナビゲーション -->
+  <button class="nav prev">&#10094;</button>
+  <button class="nav next">&#10095;</button>
+</header>
+
+<main class="main-content">
+
+<section class="section-block">
+<h2>🚚 新入荷</h2>
+<div class="games-row">
+  <div class="game-item"><a href="#"><img src="images/34 Players.jpg" alt="3/4 Players"></a><p>3-4 プレイヤーゲーム</p></div>
+  <div class="game-item"><a href="#"><img src="images/Mercenaries.jpg" alt="Mercenaries"></a><p>マーセナリーズ</p></div>
+  <div class="game-item"><a href="#"><img src="images/Tschak!.jpg" alt="Tschak!"></a><p>シャキーン！</p></div>
+  <div class="game-item"><a href="#"><img src="images/SOBEK.jpg" alt="SOBEK"></a><p>セベク</p></div>
+  <div class="game-item"><a href="#"><img src="images/Fire & Water.jpg" alt="Fire & Water"></a><p>炎と水</p></div>
+</div>
+<a href="more.html" class="more-link">more&gt;&gt;</a>
+</section>
+
+<section class="section-block">
+<h2>🔥 人気</h2>
+<div class="games-row">
+  <div class="game-item"><a href="catan.php"><img src="images/Catan.jpg" alt="Catan"></a><p>カタン</p></div>
+  <div class="game-item"><a href="#"><img src="images/UNO.jpg" alt="UNO"></a><p>ウノ</p></div>
+  <div class="game-item"><a href="#"><img src="images/Iliad.jpg" alt="Iliad"></a><p>イリアス</p></div>
+  <div class="game-item"><a href="#"><img src="images/Dice Town Extension.jpg" alt="Dice Town Extension"></a><p>ダイスタウン拡張セット</p></div>
+  <div class="game-item"><a href="#"><img src="images/Intrigo.jpg" alt="Intrigo"></a><p>イントリーゴ</p></div>
+</div>
+<a href="more.html" class="more-link">more&gt;&gt;</a>
+</section>
+
+<section class="section-block">
+<h2>🌟 高評価中</h2>
+<div class="games-row">
+  <div class="game-item"><a href="#"><img src="images/Wicked Witches Way.jpg" alt="Wicked Witches Way"></a><p>いじわる魔女レース</p></div>
+  <div class="game-item"><a href="catan.html"><img src="images/Catan.jpg" alt="Catan"></a><p>カタン</p></div>
+  <div class="game-item"><a href="#"><img src="images/UNO.jpg" alt="UNO"></a><p>ウノ</p></div>
+  <div class="game-item"><a href="#"><img src="images/Wooly Bully.jpg" alt="Wooly Bully"></a><p>ウーリィ・ブーリィ</p></div>
+  <div class="game-item"><a href="#"><img src="images/Doraco Mundis.jpg" alt="Doraco Mundis"></a><p>ドラコ・ムンディ</p></div>
+</div>
+<a href="more.html" class="more-link">more&gt;&gt;</a>
+</section>
+
+</main>
+
+<script src="scripts/bg-styles.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 游戏数据库（与search.html保持一致）
+  const gameDatabase = [
+    {
+      id: 1,
+      name: "カタン",
+      englishName: "catan",
+      image: "images/Catan.jpg",
+      genres: ["strategy", "luck", "cooperation"],
+      players: ["3-4"],
+      time: ["60+"],
+      age: ["7-12", "13-16"],
+      description: "カタンは、プレイヤーが島の開拓者となり、資源を集めて道路や集落、都市を建設し、発展を競うボードゲームです。"
+    },
+    {
+      id: 2,
+      name: "ウノ",
+      englishName: "uno",
+      image: "images/UNO.jpg",
+      genres: ["card", "luck"],
+      players: ["1-2", "3-4", "5-6"],
+      time: ["10-30"],
+      age: ["7-12", "13-16", "17+"]
+    },
+    {
+      id: 3,
+      name: "イリアス",
+      englishName: "iliad",
+      image: "images/Iliad.jpg",
+      genres: ["strategy", "card"],
+      players: ["3-4"],
+      time: ["30-60"],
+      age: ["13-16", "17+"]
+    },
+    {
+      id: 4,
+      name: "マーセナリーズ",
+      englishName: "mercenaries",
+      image: "images/Mercenaries.jpg",
+      genres: ["strategy"],
+      players: ["3-4"],
+      time: ["30-60"],
+      age: ["13-16", "17+"]
+    },
+    {
+      id: 5,
+      name: "シャキーン！",
+      englishName: "tschak",
+      image: "images/Tschak!.jpg",
+      genres: ["party", "luck"],
+      players: ["3-4", "5-6"],
+      time: ["10-30"],
+      age: ["7-12", "13-16", "17+"]
+    }
+  ];
+
+  // スライダー機能
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.nav.prev');
+  const nextBtn = document.querySelector('.nav.next');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    slides[currentSlide].classList.add('active');
+  }
+
+  function nextSlide() { currentSlide++; showSlide(currentSlide); }
+  function prevSlide() { currentSlide--; showSlide(currentSlide); }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+  }
+
+  let slideInterval = setInterval(nextSlide, 5000);
+
+  const bannerContainer = document.querySelector('.banner-container');
+  if (bannerContainer) {
+    bannerContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    bannerContainer.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+  }
+
+  showSlide(currentSlide);
+
+  // カテゴリモーダル機能
+  const searchInput = document.getElementById('search-input');
+  const categoryModal = document.getElementById('category-modal');
+  const clearBtn = document.getElementById('clear-btn');
+  const applyBtn = document.getElementById('apply-btn');
+
+  // 検索バークリックでモーダル表示/非表示
+  if (searchInput && categoryModal) {
+    searchInput.addEventListener('focus', function(e) {
+      e.stopPropagation();
+      categoryModal.classList.add('active');
+    });
+    
+    searchInput.addEventListener('click', function(e) {
+      e.stopPropagation();
+      categoryModal.classList.add('active');
+    });
+  }
+
+  // モーダル外クリックで閉じる
+  document.addEventListener('click', function(e) {
+    if (categoryModal && categoryModal.classList.contains('active') && 
+        !categoryModal.contains(e.target) && 
+        e.target !== searchInput) {
+      categoryModal.classList.remove('active');
+    }
+  });
+
+  // クリアボタン
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      const checkboxes = categoryModal.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+    });
+  }
+
+  // 適用ボタン
+  if (applyBtn) {
+    applyBtn.addEventListener('click', function() {
+      const selectedGenres = Array.from(categoryModal.querySelectorAll('input[name="genre"]:checked'))
+        .map(cb => cb.value);
+      const selectedPlayers = Array.from(categoryModal.querySelectorAll('input[name="players"]:checked'))
+        .map(cb => cb.value);
+      const selectedTimes = Array.from(categoryModal.querySelectorAll('input[name="time"]:checked'))
+        .map(cb => cb.value);
+      const selectedAges = Array.from(categoryModal.querySelectorAll('input[name="age"]:checked'))
+        .map(cb => cb.value);
+      
+      console.log('適用されたフィルター:', {
+        ジャンル: selectedGenres,
+        プレイ人数: selectedPlayers,
+        プレイ時間: selectedTimes,
+        年齢: selectedAges
+      });
+      
+      categoryModal.classList.remove('active');
+    });
+  }
+
+  // 搜索功能
+  function performSearch() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    
+    // 收集所有筛选条件
+    const selectedGenres = Array.from(categoryModal.querySelectorAll('input[name="genre"]:checked'))
+      .map(cb => cb.value);
+    const selectedPlayers = Array.from(categoryModal.querySelectorAll('input[name="players"]:checked'))
+      .map(cb => cb.value);
+    const selectedTimes = Array.from(categoryModal.querySelectorAll('input[name="time"]:checked'))
+      .map(cb => cb.value);
+    const selectedAges = Array.from(categoryModal.querySelectorAll('input[name="age"]:checked'))
+      .map(cb => cb.value);
+    
+    // 检查是否有搜索词或筛选条件
+    const hasSearchTerm = searchTerm.length > 0;
+    const hasFilters = selectedGenres.length > 0 || selectedPlayers.length > 0 || 
+                       selectedTimes.length > 0 || selectedAges.length > 0;
+    
+    if (!hasSearchTerm && !hasFilters) {
+      alert('検索キーワードまたはフィルターを選択してください');
+      return;
+    }
+    
+    console.log('検索:', searchTerm);
+    
+    // 构建查询参数（总是跳转到search.html）
+    const params = new URLSearchParams();
+    if (searchTerm) params.set('q', searchTerm);
+    if (selectedGenres.length > 0) params.set('genre', selectedGenres.join(','));
+    if (selectedPlayers.length > 0) params.set('players', selectedPlayers.join(','));
+    if (selectedTimes.length > 0) params.set('time', selectedTimes.join(','));
+    if (selectedAges.length > 0) params.set('age', selectedAges.join(','));
+    
+    // 总是跳转到搜索页面
+    window.location.href = `search.html?${params.toString()}`;
+  }
+
+  // 検索機能
+  if (searchInput) {
+    const searchBtn = document.querySelector('.search-btn');
+    
+    function handleSearch() {
+      performSearch();
+    }
+    
+    if (searchBtn) {
+      searchBtn.addEventListener('click', handleSearch);
+    }
+    
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        handleSearch();
+      }
+    });
+  }
+
+  // 背景管理器高级配置示例（可选）
+  setTimeout(() => {
+    if (window.BG) {
+      // 示例：可以在这里自定义背景管理器配置
+      // 例如：更改粒子数量
+      // window.BG.updateParticleCount(20);
+      
+      // 例如：切换主题
+      // window.BG.applyTheme('blue');
+      
+      // 例如：添加自定义粒子类型
+      // window.BG.addParticleType('custom', {
+      //   className: 'custom-particle',
+      //   size: 45
+      // });
+      // window.BG.config.particleTypes.push('custom');
+      // window.BG.generateParticles();
+      
+      console.log('背景管理器已初始化:', window.BG);
+    }
+  }, 500);
+});
+</script>
+
+</div>
+</body>
+</html>

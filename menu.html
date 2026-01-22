@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食品メニュー｜ボードゲームカフェ</title>
+    <!-- 背景とフォントを追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/bg-styles.css" />
+    <link rel="stylesheet" href="styles/menustyles.css">
+</head>
+<body>
+    <!-- 背景レイヤー（bodyの最初に配置） -->
+    <div class="boardgame-background">
+        <div class="overlay-pattern"></div>
+        <div class="particle-container"></div>
+    </div>
+    
+    <!-- コンテンツラッパー -->
+    <div class="page-wrapper">
+        <!-- ヘッダー -->
+        <header>
+            <!-- 戻るボタンを左側に移動 -->
+            <a href="home.html" class="home-btn">← ホームに戻る</a>
+            <h1>メニュー表</h1>
+        </header>
+
+        <!-- メイン -->
+        <div class="container">
+            <!-- ドリンク -->
+            <h2>ドリンク</h2>
+            <div class="menu-grid fade-in">
+                <div class="menu-item scroll-fade" onclick="openModal('ホットコーヒー', 'images/hot_coffee.png', '400円', 'アレルゲン: なし', 'こだわりの豆を使用した香り高いホットコーヒーです。')">
+                    <img src="images/hot_coffee.png" alt="ホットコーヒー">
+                    <span class="name">ホットコーヒー</span>
+                    <span class="price">400円</span>
+                    <span class="allergens">アレルゲン: なし</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('アイスティー', 'images/ice_tea.png', '400円', 'アレルゲン: なし', 'さっぱりとした冷たいティーです。ボードゲームのお供に最適。')">
+                    <img src="images/ice_tea.png" alt="アイスティー">
+                    <span class="name">アイスティー</span>
+                    <span class="price">400円</span>
+                    <span class="allergens">アレルゲン: なし</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('カフェオレ', 'images/cafeaulait.png', '420円', 'アレルゲン: 乳', 'コーヒーとミルクの絶妙なバランス。温かさと濃厚さが特徴です。')">
+                    <img src="images/cafeaulait.png" alt="カフェオレ">
+                    <span class="name">カフェオレ<span class="badge">おすすめ</span></span>
+                    <span class="price">420円</span>
+                    <span class="allergens">アレルゲン: 乳</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('コーラ', 'images/cola.png', '350円', 'アレルゲン: なし', 'よく冷えたコーラ。ゲーム中の定番ドリンクです。')">
+                    <img src="images/cola.png" alt="コーラ">
+                    <span class="name">コーラ</span>
+                    <span class="price">350円</span>
+                    <span class="allergens">アレルゲン: なし</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('オレンジジュース', 'images/orangejuice.png', '350円', 'アレルゲン: なし', 'フレッシュなオレンジジュース。ビタミン補給に最適。')">
+                    <img src="images/orangejuice.png" alt="オレンジジュース">
+                    <span class="name">オレンジジュース</span>
+                    <span class="price">350円</span>
+                    <span class="allergens">アレルゲン: なし</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('ミルクタピオカ', 'images/tapiokamilk.png', '420円', 'アレルゲン: 乳', 'もちもちタピオカとまろやかミルクのハーモニー。癒しのひとときをどうぞ。')">
+                    <img src="images/tapiokamilk.png" alt="ミルクタピオカ">
+                    <span class="name">ミルクタピオカ</span>
+                    <span class="price">420円</span>
+                    <span class="allergens">アレルゲン: 乳</span>
+                </div>
+            </div>
+
+            <!-- フード -->
+            <h2>フード</h2>
+            <div class="menu-grid fade-in">
+                <div class="menu-item scroll-fade" onclick="openModal('アイス', 'images/ice.png', '320円', 'アレルゲン: 乳', '濃厚な味わいのアイスクリーム。夏場の定番です。')">
+                    <img src="images/ice.png" alt="アイス">
+                    <span class="name">アイス<span class="badge">人気</span></span>
+                    <span class="price">320円</span>
+                    <span class="allergens">アレルゲン: 乳</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('オムライス', 'images/omurice.png', '950円', 'アレルゲン: 卵・小麦', 'ふんわりとした卵とケチャップライスの組み合わせ。ボリューム満点。')">
+                    <img src="images/omurice.png" alt="オムライス">
+                    <span class="name">オムライス<span class="badge">おすすめ</span></span>
+                    <span class="price">950円</span>
+                    <span class="allergens">アレルゲン: 卵・小麦</span>
+                </div>
+                <div class="menu-item scroll-fade" onclick="openModal('ハムサンド', 'images/sandwich.png', '900円', 'アレルゲン: 乳・小麦', 'シャキシャキ野菜とジューシーなハムが奏でる、カフェの定番サンド。')">
+                    <img src="images/sandwich.png" alt="ハムサンド">
+                    <span class="name">ハムサンド</span>
+                    <span class="price">900円</span>
+                    <span class="allergens">アレルゲン: 乳・小麦</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- モーダル -->
+        <div id="menuModal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <img id="modalImage" class="modal-image" src="" alt="">
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-price" id="modalPrice"></div>
+                <div class="modal-allergens" id="modalAllergens"></div>
+                <div class="modal-description" id="modalDescription"></div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <h3>注意事項</h3>
+            <ul>
+                <li>表示価格はすべて税込価格です。</li>
+                <li>アレルゲン情報は目安です。詳細はスタッフまでお問い合わせください。</li>
+                <li>混雑時は提供に時間がかかる場合があります。</li>
+                <li>食べ物・飲み物の持ち込みは可能です。</li>
+                <li>借りたゲームの道具を汚さないようご協力をお願いします。</li>
+            </ul>
+        </div>
+
+        <!-- フッター -->
+        <footer>
+            © 2025 Board Game Cafe — All Rights Reserved.
+        </footer>
+    </div> <!-- .page-wrapper 終了 -->
+
+    <!-- 背景用JSを追加 -->
+    <script src="scripts/bg-styles.js"></script>
+    <script src="scripts/menu.js"></script>
+</body>
+</html>

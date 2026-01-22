@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人気ゲーム一覧</title>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/bg-styles.css" />
+  <link rel="stylesheet" href="styles/morestyles.css" />
+</head>
+<body>
+  <!-- 背景レイヤー（bg-styles.jsが自動で処理します） -->
+  <div class="boardgame-background">
+    <div class="overlay-pattern"></div>
+    <div class="particle-container"></div>
+  </div>
+  
+  <div class="page-wrapper">
+    <!-- ホームに戻るボタン -->
+    <a href="home.html" class="back-btn">← ホームに戻る</a>
+    
+    <main class="main-content">
+      <section class="section-block">
+        <h2>🔥 人気ゲーム一覧</h2>
+        
+        <!-- ゲームリスト -->
+        <div class="game-list">
+          <div class="game-item">
+            <a href="catan.html">
+              <img src="images/Catan.jpg" alt="Catan">
+              <p>カタン</p>
+            </a>
+          </div>
+          
+          <div class="game-item">
+            <img src="images/UNO.jpg" alt="UNO">
+            <p>ウノ</p>
+          </div>
+          
+          <div class="game-item">
+            <img src="images/Iliad.jpg" alt="Iliad">
+            <p>イリアス</p>
+          </div>
+          
+          <div class="game-item">
+            <img src="images/Dice Town Extension.jpg" alt="Dice Town Extension">
+            <p>ダイスタウン拡張セット</p>
+          </div>
+          
+          <div class="game-item">
+            <img src="images/Intrigo.jpg" alt="Intrigo">
+            <p>イントリーゴ</p>
+          </div>
+          
+          <!-- さらにゲームカードを追加できます -->
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <!-- 背景用JSファイルを読み込む -->
+  <script src="scripts/bg-styles.js"></script>
+</body>
+</html>

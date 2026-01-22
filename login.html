@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ログイン</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="touroku.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <h1>ログイン</h1>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <form action="api/login.php" method="post">
+
+      <label>
+        メールアドレス
+        <input type="email" name="email" required>
+      </label>
+
+      <label>
+        パスワード
+        <input type="password" name="password" required>
+      </label>
+
+      <button type="submit">ログイン</button>
+    </form>
+
+    <p>
+      まだ会員でない方は  
+      <a href="register.html">こちらから登録</a>
+    </p>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>© 2026 Login Page</p>
+  </footer>
+
+</body>
+</html>
+
+
