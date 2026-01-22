@@ -1,0 +1,275 @@
+/* bg-styles.css - すべての背景とパーティクル効果のスタイルを統合 */
+
+/* 基本リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Klee One', 'Hachi Maru Pop', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: transparent;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 背景レイヤー */
+.boardgame-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 30% 40%, #FFF8DC 0%, #F4E8D0 30%, #E8D7B8 60%, #D9C6A5 100%);
+  z-index: -2;
+}
+
+/* 背景パターンのオーバーレイ */
+.overlay-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(205, 133, 79, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* パーティクルコンテナ */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0.6;
+  animation: float 20s infinite ease-in-out;
+}
+
+/* パーティクルアニメーション */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -50px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-20px, -100px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-40px, -50px) rotate(270deg);
+  }
+}
+
+@keyframes floatAlt {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-40px, -60px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(25px, -120px) rotate(-180deg);
+  }
+  75% {
+    transform: translate(35px, -60px) rotate(-270deg);
+  }
+}
+
+/* 各パーティクルタイプ */
+.dice-particle {
+  width: 40px;
+  height: 40px;
+  background: rgba(139, 69, 19, 0.35);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.dice-particle::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(205, 133, 79, 0.8);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-particle {
+  width: 35px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(160, 82, 45, 0.3) 0%, rgba(205, 133, 79, 0.4) 100%);
+  border-radius: 3px;
+  border: 1px solid rgba(139, 69, 19, 0.4);
+}
+
+.token-particle {
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.5) 0%, rgba(184, 134, 11, 0.35) 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(184, 134, 11, 0.45);
+}
+
+.meeple-particle {
+  width: 25px;
+  height: 40px;
+  background: rgba(139, 69, 19, 0.4);
+  border-radius: 50% 50% 15% 15%;
+  position: relative;
+}
+
+.meeple-particle::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: rgba(139, 69, 19, 0.4);
+  border-radius: 50%;
+}
+
+/* 追加パーティクルのバリエーション（任意） */
+.pawn-particle {
+  width: 25px;
+  height: 35px;
+  background: linear-gradient(to bottom, rgba(50, 50, 50, 0.4) 0%, rgba(100, 100, 100, 0.3) 100%);
+  border-radius: 50% 50% 30% 30%;
+}
+
+.chip-particle {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, rgba(200, 0, 0, 0.3) 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(150, 0, 0, 0.5);
+}
+
+/* 背景のバリエーションクラス（JSで切り替え可能） */
+.bg-variant-wood {
+  background: radial-gradient(circle at 30% 40%, #DEB887 0%, #CD853F 30%, #8B4513 60%, #654321 100%);
+}
+
+.bg-variant-green {
+  background: radial-gradient(circle at 30% 40%, #F0FFF0 0%, #98FB98 30%, #3CB371 60%, #2E8B57 100%);
+}
+
+.bg-variant-blue {
+  background: radial-gradient(circle at 30% 40%, #F0F8FF 0%, #87CEEB 30%, #4682B4 60%, #1E3A5F 100%);
+}
+
+.bg-variant-purple {
+  background: radial-gradient(circle at 30% 40%, #F8F0FF 0%, #D8BFD8 30%, #9370DB 60%, #4B0082 100%);
+}
+
+/* ナイトモード */
+.bg-night {
+  background: radial-gradient(circle at 30% 40%, #2C3E50 0%, #34495E 30%, #1C2833 60%, #0E1A26 100%);
+}
+
+.bg-night .overlay-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(173, 216, 230, 0.07) 0%, transparent 50%);
+}
+
+/* パーティクルコントロールパネルのスタイル */
+.bg-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 200px;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  display: none; /* 初期状態は非表示、JSで表示可能 */
+}
+
+.bg-controls h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #8B4513;
+  text-align: center;
+  border-bottom: 1px solid #F4E8D0;
+  padding-bottom: 5px;
+}
+
+.bg-control-group {
+  margin-bottom: 10px;
+}
+
+.bg-control-group label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.bg-control-group select,
+.bg-control-group input[type="range"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  background: white;
+}
+
+.bg-control-btn {
+  width: 100%;
+  padding: 8px;
+  background: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 5px;
+}
+
+.bg-control-btn:hover {
+  background: #A0522D;
+}
+
+.bg-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(139, 69, 19, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bg-toggle-btn:hover {
+  background: rgba(160, 82, 45, 0.9);
+}

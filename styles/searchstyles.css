@@ -1,0 +1,213 @@
+/* 注意：body の背景やフォントは bg-styles.css で統一管理 */
+
+/* 検索ページのレイアウト */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* メインコンテンツエリア */
+.main-content {
+  padding-bottom: 40px;
+}
+
+/* 戻るボタン */
+.back-btn {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: rgba(139, 69, 19, 0.7);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+  background-color: rgba(139, 69, 19, 0.9);
+  text-decoration: none;
+}
+
+/* ゲームのセクションブロック */
+.section-block {
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.section-block h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #F4E8D0;
+  color: #8B4513;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+/* ゲームリスト（横並び） */
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: visible;
+}
+
+/* ゲームカード */
+.game-item {
+  flex: 0 0 auto;
+  width: 180px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.game-item:hover {
+  transform: translateY(-5px);
+}
+
+.game-item img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: block;
+  margin-bottom: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.game-item p {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  font-family: 'Klee One', sans-serif;
+}
+
+/* 検索専用スタイル */
+.search-info {
+  background-color: rgba(240, 248, 255, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #8B4513;
+  backdrop-filter: blur(5px);
+}
+
+.search-info h3 {
+  margin-top: 0;
+  color: #8B4513;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+/* フィルタータグ */
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.filter-tag {
+  background-color: rgba(244, 232, 208, 0.8);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #8B4513;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+/* 検索結果なし */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  margin-top: 20px;
+}
+
+.no-results p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: 'Klee One', sans-serif;
+}
+
+/* ホームへ戻るボタン */
+.back-to-home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: rgba(139, 69, 19, 0.7);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  font-family: 'Klee One', sans-serif;
+}
+
+.back-to-home-btn:hover {
+  background-color: rgba(139, 69, 19, 0.9);
+  text-decoration: none;
+}
+
+/* 検索結果件数 */
+.result-count {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  font-family: 'Klee One', sans-serif;
+}
+
+/* ゲームリンク */
+.game-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.game-item a:hover {
+  text-decoration: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .game-item {
+    width: 150px;
+  }
+  
+  .section-block h2,
+  .search-info h3 {
+    font-size: 20px;
+  }
+  
+  .back-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-item {
+    width: 130px;
+  }
+  
+  .game-list {
+    justify-content: center;
+  }
+}

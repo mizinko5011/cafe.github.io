@@ -1,0 +1,376 @@
+/* 注意：body の背景やフォントは bg-styles.css で統一管理 */
+
+/* 戻るボタン */
+.back-btn {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-left: 400px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: rgba(139, 69, 19, 0.7);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+  background-color: rgba(139, 69, 19, 0.9);
+  text-decoration: none;
+}
+
+/* メインコンテナ */
+.container {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ゲーム情報エリア */
+.game-header {
+  display: flex;
+  gap: 25px;
+}
+
+.image-box {
+  width: 200px;    
+  height: 300px;   
+  background: rgba(224, 224, 224, 0.8);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.15);
+}
+
+.game-img {
+  width: 200px;      /* 固定幅 */
+  height: 300px;     /* 固定高さ */
+  object-fit: cover; /* アスペクト比を維持して表示 */
+  border-radius: 12px;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  color: #8B4513;
+  font-family: 'Hachi Maru Pop', cursive;
+  margin-top: 0;
+}
+
+.info p {
+  font-family: 'Klee One', sans-serif;
+  color: #555;
+}
+
+.btn-row {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 224, 138, 0.9);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-family: 'Klee One', sans-serif;
+
+  /* これだけでOK */
+  color: #333;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btn:hover {
+  background: #ffd45c;
+  transform: scale(1.05);
+}
+
+/* お気に入りボタン専用スタイル */
+#favoriteBtn {
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* ゲーム説明エリア */
+.game-description {
+  margin-top: 30px;
+  background: rgba(249, 249, 249, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.game-description h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #8B4513;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+.game-description p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  font-family: 'Klee One', sans-serif;
+}
+
+/* レビューエリア */
+.review-section {
+  margin-top: 40px;
+}
+
+.review-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #8B4513;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+.review-card {
+  background: rgba(250, 250, 250, 0.8);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(204, 204, 204, 0.8);
+  border-radius: 8px;
+}
+
+.review-body {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  font-family: 'Klee One', sans-serif;
+}
+
+.review-meta {
+  text-align: right;
+  font-size: 14px;
+  color: #555;
+  font-family: 'Klee One', sans-serif;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  color: #8B4513;
+}
+
+.review-content {
+  color: #333;
+}
+
+.review-stars {
+  color: #ffc107;
+}
+
+.review-date {
+  color: #777;
+}
+
+/* 評価モーダルのスタイル */
+.rating-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #8B4513;
+  text-align: center;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+/* 星評価のスタイル */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.star {
+  font-size: 40px;
+  color: #ccc;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.rating-value {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #8B4513;
+  font-family: 'Klee One', sans-serif;
+}
+
+/* フォームスタイル */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+  font-family: 'Klee One', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(221, 221, 221, 0.8);
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border 0.3s;
+  font-family: 'Klee One', sans-serif;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ffd45c;
+  box-shadow: 0 0 0 3px rgba(255, 208, 92, 0.2);
+}
+
+/* モーダルボタン */
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background: rgba(76, 175, 80, 0.9);
+  color: white;
+  padding: 12px 24px;
+}
+
+.submit-btn:hover {
+  background: #45a049;
+}
+
+.cancel-btn {
+  background: rgba(244, 67, 54, 0.9);
+  color: white;
+  padding: 12px 24px;
+}
+
+.cancel-btn:hover {
+  background: #da190b;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .game-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-box {
+    width: 180px;
+    height: 270px;
+  }
+  
+  .game-img {
+    width: 180px;
+    height: 270px;
+  }
+  
+  .btn-row {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .back-btn {
+    margin-left: 10px;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+  
+  .review-card {
+    flex-direction: column;
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    margin: 0 10px 30px;
+  }
+  
+  .back-btn {
+    margin-left: 5px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

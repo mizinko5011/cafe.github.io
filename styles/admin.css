@@ -1,0 +1,323 @@
+/* admin.css - 管理者ページ用スタイル */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Maru Gothic', Arial, sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+/* アニメーション背景（追加部分） */
+.boardgame-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 30% 40%, #FFF8DC 0%, #F4E8D0 30%, #E8D7B8 60%, #D9C6A5 100%);
+  z-index: -1;
+}
+
+.particle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0.6;
+  animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -50px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-20px, -100px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-40px, -50px) rotate(270deg);
+  }
+}
+
+@keyframes floatAlt {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-40px, -60px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(25px, -120px) rotate(-180deg);
+  }
+  75% {
+    transform: translate(35px, -60px) rotate(-270deg);
+  }
+}
+
+.dice-particle {
+  width: 40px;
+  height: 40px;
+  background: rgba(139, 69, 19, 0.35);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.dice-particle::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(205, 133, 79, 0.8);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-particle {
+  width: 35px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(160, 82, 45, 0.3) 0%, rgba(205, 133, 79, 0.4) 100%);
+  border-radius: 3px;
+  border: 1px solid rgba(139, 69, 19, 0.4);
+}
+
+.token-particle {
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.5) 0%, rgba(184, 134, 11, 0.35) 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(184, 134, 11, 0.45);
+}
+
+.meeple-particle {
+  width: 25px;
+  height: 40px;
+  background: rgba(139, 69, 19, 0.4);
+  border-radius: 50% 50% 15% 15%;
+  position: relative;
+}
+
+.meeple-particle::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: rgba(139, 69, 19, 0.4);
+  border-radius: 50%;
+}
+
+.overlay-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(205, 133, 79, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ヘッダー */
+.admin-header {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  color: #667eea;
+  font-size: 1.8em;
+}
+
+.admin-header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+/* タブメニュー */
+.tab-menu {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.tab-btn.active {
+  background: white;
+  color: #667eea;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* メインコンテンツエリア */
+.main-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  min-height: 500px;
+}
+
+/* タブコンテンツ */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h2 {
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #667eea;
+}
+
+/* テーブルコンテナ */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #D9C6A5; /* ベージュ系の枠線（背景のグラデーション色） */
+}
+
+table th {
+  background: #FFF8DC; /* 薄いベージュ（背景の明るい色） */
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+  color: #5D4E37; /* 茶色系のテキスト */
+  border: 1px solid #D9C6A5; /* セルの枠線 */
+}
+
+table td {
+  padding: 15px;
+  border: 1px solid #E8D7B8; /* 少し明るいベージュ */
+  color: #555;
+}
+
+table tr:hover {
+  background: #f8f9fa;
+}
+
+/* アクションボタン */
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-right: 5px;
+  transition: opacity 0.3s;
+  font-weight: bold;
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+}
+
+.btn-edit {
+  background: #ffc107;
+  color: #333;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
+  .tab-menu {
+    flex-direction: column;
+  }
+  
+  table {
+    font-size: 0.9em;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+  }
+}
