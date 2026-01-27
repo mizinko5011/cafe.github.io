@@ -1,3 +1,2 @@
 <?php
-require 'home.html';
-
+echo "PHPは動いてます";
